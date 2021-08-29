@@ -9,7 +9,6 @@ import { UserModel } from '../models/user.model';
 export class LoginService {
 
   private appConfig: AppConfig = new AppConfig();
-  
 
   constructor(private http: HttpClient) { }
 

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
+
+import { ContactPageRoutingModule } from './contact-routing.module';
 
 import { ContactPage } from './contact.page';
 
@@ -20,7 +22,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    ContactPageRoutingModule
   ],
   declarations: [ContactPage]
 })

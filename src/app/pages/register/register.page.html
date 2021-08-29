@@ -1,72 +1,72 @@
-<ion-content color="primary" padding>
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="small" class="ion-text-center">Nuevo Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
   <form #form="ngForm" (ngSubmit)="register(form)">
     <ion-grid>
       <ion-row>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
-            <h3>Crear tu cuenta</h3>
-          </div>
-          <div>
-            <ion-item margin-top [ngClass]="{'invalid-control': name.errors?.minlength}">
-              <ion-input 
-              name="name" 
-              type="text" 
-              placeholder="Nombre" 
-              minlength="4"
-              #name="ngModel"
-              ngModel 
-              required></ion-input>
-            </ion-item>
-            <ion-item margin-top [ngClass]="{'invalid-control': lastName.errors?.minlength}">
-              <ion-input 
-              name="last_name" 
-              type="text" 
-              placeholder="Apellido" 
-              minlength="4"
-              #lastName="ngModel"
-              ngModel 
-              required></ion-input>
-            </ion-item>
-            <ion-item margin-top [ngClass]="{'invalid-control': email.errors?.pattern}">
-              <ion-input 
-              name="email" 
-              type="email" 
-              placeholder="tu@correo.com" 
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
-              #email="ngModel"
-              ngModel 
-              required></ion-input>
-            </ion-item>
-            <ion-item margin-top [ngClass]="{'invalid-control': password.errors?.minlength}" >
-              <ion-input 
-              name="password" 
-              type="password" 
-              placeholder="Contraseña"
-              minlength="4"
-              #password="ngModel"
-              ngModel 
-              required></ion-input>
-            </ion-item>
-            <ion-item margin-top [ngClass]="{'invalid-control': confirm.errors?.minlength || password.value != confirm.value }">
-              <ion-input 
-              name="confirm" 
-              type="password" 
-              placeholder="Confirmar contraseña" 
-              minlength="4"
-              #confirm="ngModel"
-              ngModel 
-              required></ion-input>
-            </ion-item>
-          </div>
-          <div margin-top>
-            <ion-button color="tertiary" size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round">Registrar</ion-button>
-          </div>
+          <ion-item margin-top [ngClass]="{'invalid-control': name.errors?.minlength}">
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input 
+            name="name" 
+            type="text" 
+            minlength="4"
+            #name="ngModel"
+            ngModel 
+            required></ion-input>
+          </ion-item>
+          <ion-item margin-top [ngClass]="{'invalid-control': lastName.errors?.minlength}">
+            <ion-label position="floating">Apellido</ion-label>
+            <ion-input 
+            name="last_name" 
+            type="text" 
+            minlength="4"
+            #lastName="ngModel"
+            ngModel 
+            required></ion-input>
+          </ion-item>
+          <ion-item margin-top [ngClass]="{'invalid-control': email.errors?.pattern}">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input 
+            name="email" 
+            type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+            #email="ngModel"
+            ngModel 
+            required></ion-input>
+          </ion-item>
+          <ion-item margin-top [ngClass]="{'invalid-control': password.errors?.minlength}">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input 
+            name="password" 
+            type="password" 
+            minlength="4"
+            #password="ngModel"
+            ngModel 
+            required></ion-input>
+          </ion-item>
+          <ion-item margin-top [ngClass]="{'invalid-control': confirm.errors?.minlength || password.value != confirm.value }">
+            <ion-label position="floating">Confirmar contraseña</ion-label>
+            <ion-input 
+            name="confirm" 
+            type="password" 
+            minlength="4"
+            #confirm="ngModel"
+            ngModel 
+            required></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
-        <div padding>
-          Si ya tienes tu cuenta <a routerLink='/login' style="color:#eee">ingresa aqui</a>!
-        </div>
+        <ion-col>
+          <ion-button size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round" fill="outline">Registrar</ion-button>
+          <p class="ion-text-center">
+            Si ya tienes tu cuenta <a routerLink='/login'>ingresa aqui</a>!
+          </p>
+        </ion-col>
       </ion-row>
     </ion-grid>
   </form>

@@ -1,7 +1,7 @@
 {
   "name": "muevete-fitness-app",
   "integrations": {
-    "cordova": {}
+    "capacitor": {}
   },
   "type": "angular"
 }

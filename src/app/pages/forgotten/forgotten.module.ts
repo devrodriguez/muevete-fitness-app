@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ForgottenPage } from './forgotten.page';
+import { ForgottenPageRoutingModule } from './forgotten-routing.module';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    ForgottenPageRoutingModule
   ],
   declarations: [ForgottenPage]
 })

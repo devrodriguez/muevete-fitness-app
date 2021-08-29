@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 
 import { Platform, MenuController } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@capacitor/splash-screen';
+import { StatusBar, Style } from '@capacitor/status-bar';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
   public appPages = [
@@ -32,11 +33,9 @@ export class AppComponent {
       icon: 'time'
     }
   ];
-
+  
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private router: Router,
     private menuCtrl: MenuController
   ) {
@@ -44,9 +43,10 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+    this.platform.ready().then(async () => {
+      await StatusBar.show();
+      await StatusBar.setStyle({ style: Style.Light });
+      await SplashScreen.hide();
     });
   }
 

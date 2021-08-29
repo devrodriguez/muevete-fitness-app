@@ -3,13 +3,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    loadChildren: './pages/routine/routine.module#RoutinePageModule'
   },
   // { 
   //   path: 'contact', 
@@ -17,7 +17,7 @@ const routes: Routes = [
   // },
   { 
     path: 'product', 
-    loadChildren: './pages/product/product.module#ProductPageModule' 
+    loadChildren: () => import('./pages/product/product.module').then(m => m.ProductPageModule) 
   },
   // { 
   //   path: 'trainer', 
@@ -25,19 +25,19 @@ const routes: Routes = [
   // },
   { 
     path: 'routine', 
-    loadChildren: './pages/routine/routine.module#RoutinePageModule' 
+    loadChildren: () => import('./pages/routine/routine.module').then(m => m.RoutinePageModule) 
   },
   { 
     path: 'register', 
-    loadChildren: './pages/register/register.module#RegisterPageModule' 
+    loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule) 
   },
   { 
     path: 'login', 
-    loadChildren: './pages/login/login.module#LoginPageModule' 
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule) 
   },
   { 
     path: 'forgotten', 
-    loadChildren: './pages/forgotten/forgotten.module#ForgottenPageModule' 
+    loadChildren: () => import('./pages/forgotten/forgotten.module').then(m => m.ForgottenPageModule) 
   }
 ];
 
@@ -47,4 +47,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

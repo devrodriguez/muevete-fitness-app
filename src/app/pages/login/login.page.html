@@ -1,46 +1,50 @@
-<ion-content color="primary" padding>
-    <form #form="ngForm" (ngSubmit)="login()">
-      <ion-grid>
-        <ion-row justify-content-center>
-          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-            <div text-center>
-              <h3>Inicia sesion</h3>
-            </div>
-            <div>
-              <ion-item [ngClass]="{'invalid-control': email.errors?.pattern}">
-                <ion-input name="email" 
-                type="email" 
-                placeholder="tu@email.com" 
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
-                [(ngModel)]="user.email" 
-                #email="ngModel"
-                required></ion-input>
-              </ion-item>
-              <ion-item margin-top [ngClass]="{'invalid-control': password.errors?.minlength}">
-                <ion-input name="password" 
-                type="password" 
-                placeholder="Contraseña" 
-                minlength="4" 
-                [(ngModel)]="user.password" 
-                #password="ngModel"
-                required></ion-input>
-              </ion-item>
-            </div>
-            <div padding-top>
-              <ion-button color="tertiary" size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round">Entrar</ion-button>
-            </div>
-            <div>
-              <p class="ion-text-center">
-                <a [routerLink]="['/forgotten']" style="color:#eee" replaceUrl="true">Olvide mi contraseña</a>
-              </p>
-            </div>
-            <div>
-              <p class="ion-text-center">
-                Si no tienes una cuenta, por favor <a routerLink='/register' style="color:#eee" replaceUrl="true">registrate aqui</a>!
-              </p>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </form>
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="small" class="ion-text-center">Iniciar Sesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="login()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="full" [ngClass]="{'invalid-control': email.errors?.pattern}">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input 
+            name="email" 
+            type="email" 
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+            [(ngModel)]="user.email" 
+            #email="ngModel"
+            required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="full" margin-top [ngClass]="{'invalid-control': password.errors?.minlength}">
+            <ion-label position="floating">Contrasena</ion-label>
+            <ion-input 
+            name="password" 
+            type="password"
+            minlength="4" 
+            [(ngModel)]="user.password" 
+            #password="ngModel"
+            required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button color="primary" size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round" fill="outline">Entrar</ion-button>
+          <p class="ion-text-center">
+            <a [routerLink]="['/forgotten']" replaceUrl="true">Olvide mi contraseña</a>
+          </p>
+          <p class="ion-text-center">
+            Si no tienes una cuenta, por favor <a routerLink='/register' replaceUrl="true">registrate aqui</a>!
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

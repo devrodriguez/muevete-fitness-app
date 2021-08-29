@@ -2,7 +2,7 @@ import { environment } from 'src/environments/environment';
 
 export class AppConfig {
     private host: string = "localhost";
-    private port: string = ':8000';
+    private port: string = ':8080';
 
     public apiUrl: string;
 

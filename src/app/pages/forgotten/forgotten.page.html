@@ -1,27 +1,29 @@
-<ion-content color="primary" padding>
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="small" class="ion-text-center">Olvide Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
   <form #form="ngForm" (ngSubmit)="send()">
     <ion-grid>
       <ion-row justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div text-center>
-            <h3>Recupera tu contraseña</h3>
-          </div>
-          <div>
-            <ion-item [ngClass]="{'invalid-control': email.errors?.pattern}">
+          <ion-item [ngClass]="{'invalid-control': email.errors?.pattern}">
+              <ion-label position="floating">Correo</ion-label>
               <ion-input name="email" 
-              type="email" 
-              placeholder="tu@email.com" 
+              type="email"
               #email="ngModel"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
               [(ngModel)]="user.email" 
               required></ion-input>
             </ion-item>
-          </div>
-          <div padding-top>
-            <ion-button color="tertiary" size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round">Recuperar</ion-button>
-          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button size="medium" type="submit" [disabled]="form.invalid" expand="block" shape="round" fill="outline">Recuperar</ion-button>
           <p class="ion-text-center">
-            <a routerLink="/login" style="color:#eee" replaceUrl="true">Tengo una cuenta</a>
+            <a routerLink="/login" replaceUrl="true">Tengo una cuenta</a>
           </p>
         </ion-col>
       </ion-row>

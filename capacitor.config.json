@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "muevete-fitness-app",
+	"webDir": "www",
+	"bundledWebRuntime": true
+}

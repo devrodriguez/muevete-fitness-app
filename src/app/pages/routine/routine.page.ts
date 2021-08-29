@@ -35,7 +35,17 @@ export class RoutinePage implements OnInit {
   async loadRoutines() {
     if (!this.isLoading)
       await this.loadingOn()
+
+    this.routineService
+    .queryRoutines()
+    .subscribe(async result => {
+      this.categories = result;
+      await this.loadingOff();
+    }, async () => {
+      await this.loadingOff();
+    });
     
+    /*
     this.routineService
     .getRoutines(this.currDate)
     .subscribe(async data => {
@@ -44,6 +54,7 @@ export class RoutinePage implements OnInit {
     }, async () => {
       await this.loadingOff();
     });
+    */
   }
 
   dateChange(eve) {
